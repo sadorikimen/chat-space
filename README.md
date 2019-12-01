@@ -1,19 +1,20 @@
 # usersテーブル
 | Column | Type | Options |
 | ------ | ---- | ------- |
-| user_name | references | null: false, foreign_key: true |
-| user_id | references | null: false, foreign_key: true |
+| name | string | null: false, |
 ## Association
-- has_many :group, through: :groups_users
-- has_many :message
+- has_many :groups, through: :groups_users
+- has_many :messages, through: :groups_users
 
 
 # groupsテーブル
 | Column | Type | Options |
 | ------ | ---- | ------- |
-| group_name | integer |
+| name | string |
 ## Association
-- has_many :user, through: :groups_users
+- has_many :users, through: :groups_users
+- has_many :groups_users, through: :groups_users
+- has_many :messages, through: :groups_users
 
 
 # groups_usersテーブル
@@ -22,8 +23,8 @@
 | user_id | references | null: false, foreign_key: true |
 | group_id | references | null: false, foreign_key: true |
 ## Association
-- belongs_to :group
 - belogns_to :user
+- belongs_to :group
 
 
 # messageテーブル
@@ -35,6 +36,7 @@
 | user_id | references | null: false, foreign_key: true |
 ## Association
 - belongs_to :user
+- belongs_to :group
 
 
 
