@@ -1,30 +1,37 @@
 
-# group_usersテーブル
+# groups_usersテーブル
 | Column | Type | Options |
-|:------|----:|:-------:|
-| user_id | integer | null: false, foreign_key: true |
-| group_id | integer| null: false, foreign_key: true |
+| ------ | ---- | ------- |
+| users_id | references | null: false, foreign_key: true |
+| groups_id | references | null: false, foreign_key: true |
+## Association
+- belongs_to :group
+- belogns_to :user
+
+
 
 # messageテーブル
 | Column | Type | Options |
 | ------ | ---- | ------- |
 | body | text |
 | image | stirng |
-| group_id | integer | null: false, foreign_key: true |
-| user_id | integer | null: false, foreign_key: true |
+| groups_id | references | null: false, foreign_key: true |
+| users_id | references | null: false, foreign_key: true |
+## Association
+- belongs_to :user
 
-# imageテーブル
+
+# groupsテーブル
 | Column | Type | Options |
 | ------ | ---- | ------- |
-| name | string | null: false |
-| user_id | integer | null: false, foreign_key: true |
-| group_id | integer |
+| groups_name | integer |
+## Association
+- has_many :user
 
-# groupテーブル
-| Column | Type | Options |
-| ------ | ---- | ------- |
-| user_id | integer |
-| group_id | integer |
+
+
+
+
 
 # README
 
