@@ -1,0 +1,31 @@
+.chat-main
+  .main-header
+    .main-header__left-box
+      .main-header__left-box__current-group
+        まいど
+      .main-header__left-box__menber-list
+        ssssssdddo 
+    =link_to 'Edit', "#", class: 'main-haeder__edit-btn'
+
+  .messages
+    .message
+      .message__upper-info
+        %p.message__upper-info__talker さど
+        %p.message__upper-info__date 20191209
+      %p.message__text こんばんわ
+    .message
+      .message__upper-info
+        %p.message__upper-info__talker 山田
+        %p.message__upper-info__date 20191210
+      %p.message__text おはよう
+
+  .form
+    %form#new_message.new_message{"accept-charset": "UTF-8", action: "/groups/10113/messages", enctype: "multipart/form-data", method: "post"}
+      .input-box
+        %input#message_content.input-box__text{name: "message[content]", placeholder: "type a message", type: "text"}/
+        %label.input-box__image{for: "message_image"}
+          %i.fa.fa-image
+
+          %input#message_image.input-box__image__file{name: "message[image]", type: "file"}/
+            
+      %input.submit-btn{"data-disable-with": "Send", name: "commit", type: "submit", value: "Send"}/
