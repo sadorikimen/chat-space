@@ -4,9 +4,9 @@
       .main-header__left-box__current-group
         まいど
       .main-header__left-box__menber-list
-        ssssssdddo
-    %a(href="#")
-      .main-haeder__edit-btn Edit
+        ssssssdddo 
+    =link_to 'Edit', "#", class: 'main-haeder__edit-btn'
+
   .messages
     .message
       .message__upper-info
@@ -21,7 +21,6 @@
 
   .form
     %form#new_message.new_message{"accept-charset": "UTF-8", action: "/groups/10113/messages", enctype: "multipart/form-data", method: "post"}
-      %input{name: "authenticity_token", type: "hidden", value: "YwOTOGnqm9vArdVak2gpr+81nAmDvX280XkVYERemxAYvxLTrCvzjpamxIaGYOz71VHHMZfwpbXFeMSOgb/mEQ=="}/
       .input-box
         %input#message_content.input-box__text{name: "message[content]", placeholder: "type a message", type: "text"}/
         %label.input-box__image{for: "message_image"}
