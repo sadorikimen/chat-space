@@ -2,17 +2,18 @@
   .main-header
     .main-header__left-box
       .main-header__left-box__current-group
-        まいど
+        = @group.name
       .main-header__left-box__menber-list
-        ssssssdddo 
-      %a=link_to 'Edit', edit_group_path(@group.id), class: 'main-haeder__edit-btn'
+        - @group.users.each do |user|
+          = user.name
+    = link_to 'Edit', edit_group_path(@group.id), class: 'edit-btn'
 
   .messages
     = render @messages
    
   .form
     = form_for [@group, @message] do |f|
-      = f.new_message :content, class: 'new_message', placeholder: 'type a message'
+      = f.text_field :content, class: 'new_message', placeholder: 'type a message'
       .input-box
         = f.label :image, class: 'input-box__text' do
           = icon('fas', 'image', class: 'input-box__image')

@@ -34,11 +34,13 @@
     padding: 20px 20px;
     .group{
       margin-bottom: 40px;
-      .group-name{
+      text-decoration: none;
+      color: white;
+      &__group-name{
         font-size: 15px;
         margin-bottom: 5px;
       }
-      .lastest-massege{
+      &__lastest-message{
         font-size: 11px;
       }
     }
@@ -72,7 +74,7 @@
         color: #999999;
       }
     }
-    a{
+    .edit-btn{
       color: #38aef0;
       height: 40px;
       line-height: 40px;
@@ -117,9 +119,12 @@
     background-color: #d2d2d2;
     .new_message{
       display: flex;
+      border: none;
+      width: calc(100vw - 380px);
       .input-box{
         position: relative;
-        width: 100%;
+        display: flex;
+        background: white;
         &__text{
           height: 50px;
           width: 100%;
@@ -132,17 +137,13 @@
           position: absolute;
           top: 10px;
           right: 10px;
-          .fa-image{
-            display: inline-block;
-            font-size: inherit;
-            text-rendering: auto;
-            -webkit-font-smoothing: antialiased;
-          }
-          .input-box__image__file{
+          cursor: pointer;
+          &__file{
             display: none;
           }
         }
       }
+    }
       .submit-btn{
         width: 100px;
         height: 50px;
@@ -151,7 +152,7 @@
         background-color: #38aef0;
         color: white;
       }
-    }
   }
 }
+
 
