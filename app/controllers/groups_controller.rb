@@ -29,7 +29,6 @@ class GroupsController < ApplicationController
   
   def show
     @group = Group.find(paramas[:id])
-    ##ここにgroup_userのインスタンス変数の定義？
   end
 
   def edit
