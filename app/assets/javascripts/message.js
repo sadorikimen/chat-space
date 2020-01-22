@@ -5,16 +5,16 @@ $(function(){
         `<div class="message" data-message-id=${message.id}>
           <div class="message__upper-info">
             <div class="message__upper-info__talker">
-              ${message.usr_name}
+              ${message.user_name}
             </div>
-            <div class="message__upper-info__data" >
+            <div class="message__upper-info__date" >
               ${message.created_at}
             </div>
           </div>
           <div class="message__text">
             ${message.content}
           </div>
-          <img src=${message.image} >
+          <img src=${message.image.url} >
         </div>`
       return html;
     } else {
@@ -22,9 +22,9 @@ $(function(){
         `<div class="message" data-message-id=${message.id}>
           <div class="message__upper-info">
             <div class="message__upper-info__talker">
-              ${message.usr_name}
+              ${message.user_name}
             </div>
-            <div class="message__upper-info__data" >
+            <div class="message__upper-info__date" >
               ${message.created_at}
             </div>
           </div>
