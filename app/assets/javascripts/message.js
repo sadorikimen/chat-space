@@ -13,9 +13,9 @@ $(function(){
             </div>
           </div>
           <div class="message__text">
-            <img src="${message.image}">
             ${message.content}
           </div>
+          <img src="${message.image}">
       </div>`
     } else {
       var html =
