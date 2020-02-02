@@ -1,6 +1,7 @@
 $(function(){
   function buildHTML(message){
-    if ( message.content && message.image ) {
+    
+    if ( message.image ) {
       var html = 
       `<div class="message" data-message-id=${message.id}>
           <div class="message__upper-info">
@@ -12,11 +13,11 @@ $(function(){
             </div>
           </div>
           <div class="message__text">
+            <img src="${message.image}">
             ${message.content}
           </div>
-          <img src=${message.image.url} >
       </div>`
-    } else if (message.content) {
+    } else {
       var html =
        `<div class="message" data-message-id=${message.id}>
           <div class="message__upper-info">
@@ -31,25 +32,9 @@ $(function(){
             ${message.content}
           </div>
         </div>`
-    } else if (message.image) {
-      var html =
-       `<div class="message" data-message-id=${message.id}>
-          <div class="message__upper-info">
-            <div class="message__upper-info__talker">
-              ${message.user_name}
-            </div>
-            <div class="message__upper-info__date" >
-              ${message.created_at}
-            </div>
-          </div>
-          <div class="message__text">
-            ${message.image}
-          </div>
-        </div>`
-    };
-    return html;
-  };
-
+      };
+      return html;
+  }
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
@@ -63,6 +48,7 @@ $(function(){
       contentType: false
     })
      .done(function(data){
+       console.table(data)
        var html = buildHTML(data);
        $('.messages').append(html);
        $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight });
