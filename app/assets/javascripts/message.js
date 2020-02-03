@@ -15,7 +15,7 @@ $(function(){
           <div class="message__text">
             ${message.content}
           </div>
-          <img src="${message.image}">
+            <img src="${message.image}">
       </div>`
     } else {
       var html =
@@ -32,7 +32,7 @@ $(function(){
             ${message.content}
           </div>
         </div>`
-      };
+    };
       return html;
   }
   $('#new_message').on('submit', function(e){
